@@ -465,11 +465,16 @@ func (d *dumper) writeUnsignedInt() {
 }
 
 func (d *dumper) writePointer() {
-	d.printf(
-		"(%s)(unsafe.Pointer(uintptr(0x%x)))",
-		d.value.Type().String(),
-		d.value.Pointer(),
-	)
+	d.writeRaw(fmt.Sprintf("func() %s ", d.value.Type().String()))
+	d.writeBlock(func() {
+		d.writeIndentedRaw(fmt.Sprintf(
+			"var value %s = %#v\n",
+			d.value.Elem().Type().String(),
+			d.value.Elem(),
+		))
+		d.writeIndentedRaw("return &value\n")
+	})
+	d.printf("()")
 }
 
 func (d *dumper) writeVisitedPointer() (func(), bool) {
