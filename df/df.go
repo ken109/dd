@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/Code-Hex/dd"
+	"gorm.io/datatypes"
 )
 
 // WithBytes is a wrapper of WithDumpFunc for []byte and []uint8.
@@ -35,6 +36,20 @@ func WithRichBytes() dd.OptionFunc {
 			w.Write("func() []byte ")
 			w.WriteBlock(strings.Join(dumpLines, "\n"))
 			w.Write("()")
+		},
+	)
+}
+
+// WithDataTypesJSON is a wrapper of WithDumpFunc for datatypes.JSON.
+// Dumps a raw JSON string.
+func WithDataTypesJSON() dd.OptionFunc {
+	return dd.WithDumpFunc(
+		func(v datatypes.JSON, w dd.Writer) {
+			w.Write("datatypes.JSON(")
+			w.Write("`")
+			w.Write(string(v))
+			w.Write("`")
+			w.Write(")")
 		},
 	)
 }

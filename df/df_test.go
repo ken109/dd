@@ -9,6 +9,7 @@ import (
 
 	"github.com/Code-Hex/dd"
 	"github.com/Code-Hex/dd/df"
+	"gorm.io/datatypes"
 )
 
 func TestWithDumpFunc(t *testing.T) {
@@ -35,6 +36,12 @@ func TestWithDumpFunc(t *testing.T) {
 			v:          big.NewFloat(12345.6789),
 			want:       "func() *big.Float {\n  tmp := new(big.Float)\n  tmp.SetString(\"12345.6789\")\n  return tmp\n}()",
 			dumpOption: df.WithBigFloat(),
+		},
+		{
+			name:       "datatypes.JSON",
+			v:          datatypes.JSON(`{"hello":"world"}`),
+			want:       "datatypes.JSON(`{\"hello\":\"world\"}`)",
+			dumpOption: df.WithDataTypesJSON(),
 		},
 		{
 			name:       "json.RawMessage",
