@@ -259,12 +259,21 @@ func (d *dumper) writePtr() {
 		d.writePointer()
 		return
 	}
-	convertFunc, ok := d.convertibleTypes[deref.Type()]
+	convertFunc, ok := d.convertibleTypes[d.value.Type()]
 	if ok {
 		convertFunc(d.value, &dumpWriter{d})
 		return
 	}
-	d.printf("&%s", dumpclone(d, deref))
+	d.writeRaw(fmt.Sprintf("func() %s ", d.value.Type().String()))
+	d.writeBlock(func() {
+		d.writeIndentedRaw(fmt.Sprintf(
+			"var value %s = %v\n",
+			d.value.Elem().Type().String(),
+			dumpclone(d, deref),
+		))
+		d.writeIndentedRaw("return &value\n")
+	})
+	d.printf("()")
 }
 
 func (d *dumper) writeStruct() {
