@@ -8,7 +8,7 @@ import (
 	"os"
 	"reflect"
 
-	"github.com/Code-Hex/dd"
+	"github.com/ken109/dd"
 )
 
 func main() {

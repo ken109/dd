@@ -14,7 +14,7 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/Code-Hex/dd"
+	"github.com/ken109/dd"
 )
 
 const (

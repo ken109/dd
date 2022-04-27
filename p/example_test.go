@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/Code-Hex/dd/p"
 	"github.com/alecthomas/chroma/styles"
+	"github.com/ken109/dd/p"
 )
 
 func ExampleP() {

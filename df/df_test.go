@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Code-Hex/dd"
-	"github.com/Code-Hex/dd/df"
+	"github.com/ken109/dd"
+	"github.com/ken109/dd/df"
 	"gorm.io/datatypes"
 )
 

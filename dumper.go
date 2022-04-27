@@ -10,7 +10,7 @@ import (
 	"sync"
 	"text/tabwriter"
 
-	"github.com/Code-Hex/dd/internal/sort"
+	"github.com/ken109/dd/internal/sort"
 )
 
 type dumpFunc func(reflect.Value, Writer)

@@ -1,4 +1,4 @@
-module github.com/Code-Hex/dd
+module github.com/ken109/dd
 
 go 1.18
 

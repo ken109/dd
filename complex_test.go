@@ -10,8 +10,8 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/Code-Hex/dd"
 	"github.com/google/go-cmp/cmp"
+	"github.com/ken109/dd"
 )
 
 //go:generate go run cmd/wantdumper/main.go

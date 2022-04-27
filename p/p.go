@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"io"
 
-	"github.com/Code-Hex/dd"
 	"github.com/alecthomas/chroma"
 	"github.com/alecthomas/chroma/formatters"
 	"github.com/alecthomas/chroma/lexers/g"
 	"github.com/alecthomas/chroma/styles"
+	"github.com/ken109/dd"
 	"github.com/mattn/go-colorable"
 )
 

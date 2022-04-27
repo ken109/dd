@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Code-Hex/dd"
+	"github.com/ken109/dd"
 	"gorm.io/datatypes"
 )
 
